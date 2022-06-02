@@ -19,7 +19,7 @@ class IceReportDetailViewModel: ObservableObject {
         guard !name.isEmpty else {
             return
         }
-        Task { @MainActor in
+        Task {
             let iceReport = IceReport(reporter: name, status: status, date: .now)
             try? await service.addReport(summary.id, iceReport)
         }
